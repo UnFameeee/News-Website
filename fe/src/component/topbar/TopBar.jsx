@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./topbar.css"
 
 export default function TopBar(){
-    const user = false;
+    const user = true;
     return ( 
         <div className='top'>
             <div className="topLeft">
