@@ -18,7 +18,8 @@ router.post("/register", async(req, res)=>{
         })
 
         const user = await newUser.save();
-        res.status(500).json(user)
+        console.log(user);
+        res.status(200).json(user)
         
     }catch(err){
         //We didn't make exception handler
@@ -31,9 +32,10 @@ router.post("/register", async(req, res)=>{
 //LOGIN
 router.post("/login", async(req, res) => {
     try{
-        const user = await User.findOne({ username: req.body.username });
+        const user = await User.findOne({ email: req.body.email });
         if(!user){
             res.status(400).json("Wrong credential!");
+            console.log("wrong email")
         }
 
         const validated = await bcrypt.compare(req.body.password, user.password);
@@ -41,7 +43,8 @@ router.post("/login", async(req, res) => {
             res.status(400).json("Wrong credential!");
         }
         else{
-            const{ password, ...others } = user._doc;
+            // const{ password, ...others } = user._doc;
+            console.log(user);
             res.status(200).json(user);
         }
         
