@@ -10,18 +10,19 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
 } from "react-router-dom"
+import { useContext } from "react";
+import { Context } from "./context/Context";
 
 function App() {
 
-  const user = false;
+  const {user} = useContext(Context);
 
   return (
     <Router>
       <TopBar/>
       <Routes>
-        <Route exact path="/" element={<Home/>} />
+        <Route exact path="*" element={<Home/>} />
         <Route exact path="/login" element={ user ? <Home/> : <Login/>} />
         <Route exact path="/register" element={ user ? <Home/> : <Register/>} />
         <Route exact path="/setting" element={ user ? <Settings/> : <Login/>} />
