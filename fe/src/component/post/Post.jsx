@@ -3,12 +3,13 @@ import Single from "../../pages/single/Single";
 import {Link} from "react-router-dom"
 
 export default function Post({post}){
+    const PF = "http://localhost:5000/images/"
     return ( 
         <div className="post">
             {post.photo && (
                 <img className="postImg"
                 //  src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
-                 src="{post.photo}"
+                 src={PF + post.photo}
                  alt="" />
             )}
             
