@@ -22,7 +22,7 @@ function App() {
     <Router>
       <TopBar/>
       <Routes>
-        <Route exact path="*" element={<Home/>} />
+        <Route exact path="/posts" element={<Home/>} />
         <Route exact path="/login" element={ user ? <Home/> : <Login/>} />
         <Route exact path="/register" element={ user ? <Home/> : <Register/>} />
         <Route exact path="/setting" element={ user ? <Settings/> : <Login/>} />
