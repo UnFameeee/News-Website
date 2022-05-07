@@ -38,24 +38,23 @@ export default function TopBar(){
                 </ul>
             </div>
             <div className="topRight">
-                {
-                    user ? (
+                {user ? (
+                    <Link to="/setting">
                         <img 
                             className="topImg"
-                            // src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
                             src={user.profilePic}
                             alt="" />
-                    ):( 
-                        <ul className="topList">
-                            <li className="topListItem">
-                                <Link className="link" to="/login">LOGIN</Link>
-                            </li>
-                            <li className="topListItem">
-                                <Link className="link" to="/register">REGISTER</Link>
-                            </li>
-                        </ul>
-                    )
-                }
+                    </Link>
+                ):( 
+                    <ul className="topList">
+                        <li className="topListItem">
+                            <Link className="link" to="/login">LOGIN</Link>
+                        </li>
+                        <li className="topListItem">
+                            <Link className="link" to="/register">REGISTER</Link>
+                        </li>
+                    </ul>
+                )}
 
                 <i className="topSearchIcon fas fa-magnifying-glass"></i>
             </div>
