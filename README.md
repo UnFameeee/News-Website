@@ -45,7 +45,7 @@ For database i use https://cloud.mongodb.com
 3. The Backend will start on localhost:5000
 
 ### Front-End 
-1. Go to file package.json, adding/changing this line: "proxy":"{your backend hosted URL}". For my project it is: "proxy":"http://localhost:5000/api/"
+1. Go to folder fe -> src -> helper, open file axios.js and changing this line: const baseURL = "{your backend hosted URL}";. For my project it is: const baseURL = "http://localhost:5000/api";
 2. Go to the folder fe, then type: "npm start"
 3. The Frontend will start on localhost:3000
 
