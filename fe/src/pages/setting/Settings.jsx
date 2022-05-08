@@ -5,15 +5,17 @@ import { Context } from "../../context/Context"
 import axios from "axios"
 
 export default function Settings(){
-    const {user} = useContext(Context)
+    const {user, dispatch} = useContext(Context)
     const [file, setFile] = useState(null)
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [success, setSuccess] = useState(false)
+    const PF = "http://localhost:5000/images/"
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
+        dispatch({type:"UPDATE_START"})
         const updatedUser = {
             userId: user._id,
             username, email, password
@@ -30,13 +32,16 @@ export default function Settings(){
             }catch(err){}
         }
         try{
-            await axios.put("/users/" + user._id, updatedUser);
+            const res = await axios.put("/users/" + user._id, updatedUser);
             setSuccess(true);
+            dispatch({type:"UPDATE_SUCCESS", payload: res.data})
             // window.location.reload();
-        }catch(err){ }
+        }catch(err){ 
+            dispatch({type:"UPDATE_FAILURE"})
+        }
     }
 
-    return ( 
+    return (
         <div className='settings'>
            <div className="settingsWrapper">
                 <div className="settingsTitle">
@@ -48,7 +53,7 @@ export default function Settings(){
                     <div className="settingsPP">
                         <img
                             // src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                            src={user.profilePic}
+                            src={file ? URL.createObjectURL(file) : PF+user.profilePic}
                             alt=""
                         />
                         <label htmlFor="fileInput">
