@@ -7,7 +7,8 @@
 
 <h3 align="center">Basic News Website</h3>
   <p align="center">
-     Cre: UnFame
+     Cre: UnFame 
+     <br/>
      This project is base on: https://www.youtube.com/watch?v=tlTdbc5byAs&list=PLj-4DlPRT48lGpll2kC4wOsLj7SEV_lYu
     <br />
 <!--     <a href=""><strong>Explore the docs »</strong></a> -->
