@@ -4,3 +4,4 @@ npm install react-router-dom
 npm install dotenv-webpack --save-dev
 npm install dotenv --save
 npm install cors--save
+npm install react-scripts --save
